@@ -3,6 +3,7 @@ let accuracy;
 let errors = 0;
 let wrong;
 let wrongEmpty;
+let difficulty;
 
 function calculateStats() {
     errors = 0;
@@ -24,4 +25,25 @@ function calculateStats() {
     wpm = (60 / timeTaken) * (textLength / 5);
     document.getElementById('speed').innerHTML = wpm.toFixed(0) + " WPM";
 
+}
+
+function getDifficulty() {
+    let radios = document.getElementsByName("difficulty");
+    for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked == true) {
+            difficulty = radios[i].value;
+        }
+    }
+
+    switch (difficulty) {
+        case "easy":
+            return 100;
+        case "intermediate":
+            return 1000;
+        case "hard":
+            return 10000;
+        default:
+            console.log("unknown difficulty");
+            break;
+    }
 }

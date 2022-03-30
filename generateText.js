@@ -3,10 +3,12 @@ let textLength;
 let newList;
 
 function generateText(textWordLength, maxWordLength, minWordLength) {
+    let wordrange = getDifficulty();
+    console.log(wordrange);
     text = "";
     newList = [];
     currentKey = 1;
-    for (let i = 0; i < wordList.length; i++) {
+    for (let i = 0; i < wordrange; i++) {
         if (wordList[i].length <= maxWordLength && wordList[i].length >= minWordLength) {
             newList.push(wordList[i]);
         }
