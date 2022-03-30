@@ -49,8 +49,8 @@ function startGame() {
 }
 
 function getInputs() {
-    maxWordLength = document.getElementById("maxWordLength").value;
-    minWordLength = document.getElementById("minWordLength").value;
+    maxWordLength = parseInt(document.getElementById("maxWordLength").value);
+    minWordLength = parseInt(document.getElementById("minWordLength").value);
     textWordLength = document.getElementById("textWordLength").value;
     if (minWordLength > maxWordLength) {
         alert("min length is bigger than max");
