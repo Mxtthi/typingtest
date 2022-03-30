@@ -39,16 +39,18 @@ function wrongKeyPressed() {
 }
 
 function markPosition() {
-    letters[currentKey - 1].classList.add("current");
-    if (currentKey > 1) {
-        lastKey = currentKey - 1;
-        if (lastKey != undefined) {
-            letters[lastKey - 1].classList.remove("current");
+    if (letters != undefined) {
+        letters[currentKey - 1].classList.add("current");
+        if (currentKey > 1) {
+            lastKey = currentKey - 1;
+            if (lastKey != undefined) {
+                letters[lastKey - 1].classList.remove("current");
+            }
         }
-    }
-    if (document.getElementsByClassName("current").length > 1) {
-        console.log(document.getElementsByClassName("current"), "tset");
-        document.getElementsByClassName("current")[document.getElementsByClassName("current").length - 1].classList.remove("current");
+        if (document.getElementsByClassName("current").length > 1) {
+            console.log(document.getElementsByClassName("current"));
+            document.getElementsByClassName("current")[document.getElementsByClassName("current").length - 1].classList.remove("current");
+        }
     }
 }
 

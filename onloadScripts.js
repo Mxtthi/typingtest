@@ -37,7 +37,6 @@ function initiateSlider() {
 function startGame() {
     getInputs();
     focusText();
-    setCurrentPosition = setInterval(markPosition, 5);
     if (tries > 0) {
         while (parentElem.firstChild) {
             parentElem.removeChild(parentElem.firstChild)
@@ -46,6 +45,7 @@ function startGame() {
     }
     generateText(textWordLength, maxWordLength, minWordLength);
     initiateSlider();
+    setCurrentPosition = setInterval(markPosition, 10);
 }
 
 function getInputs() {
@@ -73,7 +73,6 @@ function validateKey(e) {
     if (e.key == "Backspace" || e.key == "Delete") {
         currentKey--;
     }
-    console.log(currentKey);
     if (e.key == "Tab") {
         e.preventDefault();
         stopGame();
@@ -95,7 +94,6 @@ function clearCurrentTime() {
 
 function stopGame() {
     tries++;
-    currentKey = 1;
     lastKey = "";
     clearInterval(setCurrentPosition);
     if (isRunning == true) {

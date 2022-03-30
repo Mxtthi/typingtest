@@ -1,16 +1,17 @@
 let text;
 let textLength;
-let newList = [];
+let newList;
 
 function generateText(textWordLength, maxWordLength, minWordLength) {
     text = "";
+    newList = [];
     currentKey = 1;
     for (let i = 0; i < wordList.length; i++) {
-        console.log("wordlength", maxWordLength);
         if (wordList[i].length <= maxWordLength && wordList[i].length >= minWordLength) {
             newList.push(wordList[i]);
         }
     }
+    console.log("max ", maxWordLength, "min ", minWordLength);
     console.log(newList)
     for (let index = 0; index < textWordLength; index++) {
         let temp = newList[getRandomIntInclusive(0, newList.length)];
