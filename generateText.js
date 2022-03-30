@@ -13,10 +13,8 @@ function generateText(textWordLength, maxWordLength, minWordLength) {
             newList.push(wordList[i]);
         }
     }
-    console.log("max ", maxWordLength, "min ", minWordLength);
-    console.log(newList)
     for (let index = 0; index < textWordLength; index++) {
-        let temp = newList[getRandomIntInclusive(0, newList.length)];
+        let temp = newList[getRandomIntInclusive(0, newList.length - 1)];
         text += " " + temp;
     }
     textLength = text.length;
