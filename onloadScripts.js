@@ -11,11 +11,10 @@ let allowedKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
 
 window.onload = function () {
-    startGame();
     window.addEventListener('keydown', validateKey);
     slider = document.getElementById("slider");
     slider.addEventListener('change', changeFontSize);
-    initiateSlider();
+    startGame();
 };
 
 function changeFontSize() {
@@ -45,18 +44,22 @@ function startGame() {
         }
         clearCurrentTime();
     }
-    generateText(textWordLength, maxWordLength);
+    generateText(textWordLength, maxWordLength, minWordLength);
+    initiateSlider();
 }
 
 function getInputs() {
-    maxWordLength = document.getElementById("wordLength").value;
-    textWordLength = document.getElementById("textWordLength").value
+    maxWordLength = document.getElementById("maxWordLength").value;
+    minWordLength = document.getElementById("minWordLength").value;
+    textWordLength = document.getElementById("textWordLength").value;
+    if (minWordLength > maxWordLength) {
+        alert("min length is bigger than max");
+    }
+    console.log(maxWordLength, minWordLength, textWordLength);
 }
 
 function validateKey(e) {
-    console.log(e);
     keyPressed = e.key;
-    console.log(keyPressed);
     for (let i = 0; i < allowedKeys.length; i++) {
         if (keyPressed == allowedKeys[i]) {
             if (isRunning == false) {
@@ -84,7 +87,6 @@ function processKey() {
     } else {
         wrongKeyPressed();
     }
-    console.log("accepted");
 }
 
 function clearCurrentTime() {
