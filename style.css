@@ -35,18 +35,21 @@ input {
   margin: 0;
 }
 
+.rightAlt {
+  color: #04AA6D;
+}
+
 .wrong {
-  color: red;
-  font-weight: bolder;
+  color: #954646;
 }
 
 .wrongEmpty {
-  background-color: red;
-  font-weight: bolder;
+  background-color: #954646;
+  opacity: 0.5;
 }
 
 .current {
-  background-color: grey;
+  background-color: #535252;
 }
 
 .unselectable {
@@ -56,6 +59,13 @@ input {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+#openButton {
+  border: none;
+  background-color: transparent;
+  font-size: 50px;
+  cursor: pointer;
 }
 
 #timeDiv {
@@ -135,7 +145,8 @@ input {
 
 #main {
   transition: margin-left 0.5s;
-  padding: 16px;
+  padding-top: 10px;
+  padding-left: 15px;
 }
 
 #mainContainer {
@@ -179,10 +190,11 @@ input {
 }
 
 .content div {
-  padding: 0 18px;
+  padding: 10px 18px;
+  font-size: 24px;
 }
 
-#collapsibleContent div {
+.content #collapsibleContent div {
   margin-top: 10px;
 }
 

@@ -14,6 +14,10 @@ function createVisuals() {
 
 function rightKeyPressed() {
     letters[currentKey - 1].classList.add("right");
+    if (altVisuals == true) {
+        letters[currentKey - 1].classList.add("rightAlt");
+    }
+
     if (letters[currentKey - 1].innerHTML == " ") {
         letters[currentKey - 1].classList.remove("wrongEmpty");
     } else {
@@ -53,7 +57,7 @@ function goForward() {
 
 function goBackwards() {
     console.log(currentKey)
-    if (letters != undefined && currentKey > 1) {
+    if (letters != undefined && currentKey > 0) {
         letters[currentKey - 1].classList.add("current");
         lastKey = currentKey + 1;
         letters[lastKey - 1].classList.remove("current");

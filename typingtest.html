@@ -27,28 +27,37 @@
         <button class="collapsible active">General Settings</button>
         <hr>
         <div class="content">
-            <span>Difficulty:</span><br>
-            <input checked type="radio" name="difficulty" id="easy" value="easy">
-            <label for="easy">Easy</label><br>
-            <input type="radio" name="difficulty" id="intermediate" value="intermediate">
-            <label for="intermediate">Intermediate</label><br>
-            <input type="radio" name="difficulty" id="hard" value="hard">
-            <label for="hard">Hard</label><br>
+            <div>
+                <span>Difficulty:</span><br>
+                <input checked type="radio" name="difficulty" id="easy" value="easy">
+                <label for="easy">Easy</label><br>
+                <input type="radio" name="difficulty" id="intermediate" value="intermediate">
+                <label for="intermediate">Intermediate</label><br>
+                <input type="radio" name="difficulty" id="hard" value="hard">
+                <label for="hard">Hard</label><br>
+            </div>
             <hr>
         </div>
 
         <button class="collapsible">Advanced Settings</button>
         <hr>
         <div id="collapsibleContent" class="content">
-            <label for="minWordLength">min. Word-Length:</label>
-            <input value="2" type="number" id="minWordLength" min="1"><br>
-            <label for="maxWordLength">max. Word-Length:</label>
-            <input value="6" type="number" id="maxWordLength" min="1"><br>
-            <label for="textWordLength">Words:</label>
-            <input value="15" type="number" id="textWordLength" min="1"><br>
-            <label for="slider">Font-Size:</label>
-            <input id="slider" type="range" min="1" max="100" value="50">
-            <span id="output"></span><br><br>
+            <div><label for="minWordLength">min. Word-Length:</label><br>
+                <input value="2" type="number" id="minWordLength" min="1">
+            </div>
+            <div><label for="maxWordLength">max. Word-Length:</label><br>
+                <input value="6" type="number" id="maxWordLength" min="1">
+            </div>
+            <div><label for="textWordLength">Words:</label><br>
+                <input value="15" type="number" id="textWordLength" min="1">
+            </div>
+            <div><label for="altVisuals">Alternative Visuals:</label>
+                <input type="checkbox" id="altVisuals">
+            </div>
+            <div><label for="slider">Font-Size:</label><br>
+                <input id="slider" type="range" min="1" max="100" value="50">
+                <span id="output"></span>
+            </div>
             <hr>
         </div>
     </div>
