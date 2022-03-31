@@ -14,17 +14,20 @@ function calculateStats() {
     if (document.getElementsByClassName("wrongEmpty").length > 0) {
         errors += document.getElementsByClassName("wrongEmpty").length;
     }
-    console.log("textlength", textLength, "errors:", errors)
     accuracy = (textLength - Math.max(errors, 0)) / textLength * 100;
-    console.log("acurracy", accuracy);
     document.getElementById("accuracy").innerHTML = accuracy.toFixed(0) + "% Accuracy";
-
-
-
-    console.log(timeTaken, textLength);
     wpm = (60 / timeTaken) * (textLength / 5);
     document.getElementById('speed').innerHTML = wpm.toFixed(0) + " WPM";
+}
 
+function showResult() {
+    document.getElementById("container").style.display = "none";
+    document.getElementById("statsDiv").style.display = "block";
+}
+
+function hideResult() {
+    document.getElementById("container").style.display = "block";
+    document.getElementById("statsDiv").style.display = "none";
 }
 
 function getDifficulty() {

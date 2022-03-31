@@ -35,6 +35,7 @@ function initiateSlider() {
 }
 
 function startGame() {
+    hideResult();
     getInputs();
     focusText();
     if (tries > 0) {
@@ -45,7 +46,6 @@ function startGame() {
     }
     generateText(textWordLength, maxWordLength, minWordLength);
     initiateSlider();
-    setCurrentPosition = setInterval(markPosition, 10);
 }
 
 function getInputs() {
@@ -60,24 +60,31 @@ function getInputs() {
 
 function validateKey(e) {
     keyPressed = e.key;
+    if (e.key == "Tab") {
+        e.preventDefault();
+        stopGame();
+        startGame();
+    }
     for (let i = 0; i < allowedKeys.length; i++) {
         if (keyPressed == allowedKeys[i]) {
             if (isRunning == false) {
                 startTimer();
                 isRunning = true;
             }
-            processKey();
-            return;
+            if (document.getElementById("statsDiv").style.display == "none") {
+                processKey();
+                goForward();
+                return;
+            }
         }
     }
     if (e.key == "Backspace" || e.key == "Delete") {
-        currentKey--;
+        if (currentKey > 1 && document.getElementById("statsDiv").style.display == "none") {
+            currentKey--;
+            goBackwards();
+        }
     }
-    if (e.key == "Tab") {
-        e.preventDefault();
-        stopGame();
-        startGame();
-    }
+
 }
 
 function processKey() {
@@ -95,7 +102,6 @@ function clearCurrentTime() {
 function stopGame() {
     tries++;
     lastKey = "";
-    clearInterval(setCurrentPosition);
     if (isRunning == true) {
         endTimer();
     }

@@ -9,6 +9,7 @@ function createVisuals() {
         parentElem.appendChild(span);
     }
     letters = document.getElementsByClassName("letter");
+    letters[currentKey - 1].classList.add("current");
 }
 
 function rightKeyPressed() {
@@ -38,8 +39,8 @@ function wrongKeyPressed() {
     }
 }
 
-function markPosition() {
-    if (letters != undefined) {
+function goForward() {
+    if (letters != undefined && currentKey - 1 < textLength) {
         letters[currentKey - 1].classList.add("current");
         if (currentKey > 1) {
             lastKey = currentKey - 1;
@@ -47,17 +48,22 @@ function markPosition() {
                 letters[lastKey - 1].classList.remove("current");
             }
         }
-        if (document.getElementsByClassName("current").length > 1) {
-            console.log(document.getElementsByClassName("current"));
-            document.getElementsByClassName("current")[document.getElementsByClassName("current").length - 1].classList.remove("current");
-        }
+    }
+}
+
+function goBackwards() {
+    console.log(currentKey)
+    if (letters != undefined && currentKey > 1) {
+        letters[currentKey - 1].classList.add("current");
+        lastKey = currentKey + 1;
+        letters[lastKey - 1].classList.remove("current");
     }
 }
 
 function finished() {
-    alert("finished");
     stopGame();
     calculateStats();
+    showResult();
 }
 
 function focusText() {

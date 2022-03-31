@@ -20,6 +20,21 @@ input {
   text-align: center;
 }
 
+#statsDiv {
+  font-size: 48px;
+  padding: 10px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  display: none;
+}
+
+#statsDiv p {
+  margin: 0;
+}
+
 .wrong {
   color: red;
   font-weight: bolder;

@@ -23,13 +23,16 @@
 
 
 <div id="container" class="unselectable"></div>
+<div id="statsDiv" class="unselectable">
+    <p id="speed"></p>
+    <hr>
+    <p id="accuracy"></p>
+</div>
+
 
 <div id="timeDiv" class="unselectable">
     <span class="timerClass" id="lastTry">0:00:00</span>
 </div>
-
-<p id="speed"></p>
-<p id="accuracy"></p>
 
 <label for="minWordLength">min. Word-Length:</label>
 <input value="5" type="number" id="minWordLength" min="1"><br>
@@ -41,7 +44,7 @@
 <input id="slider" type="range" min="1" max="100" value="50">
 <span id="output"></span><br><br>
 <span>Difficulty:</span><br>
-<input type="radio" name="difficulty" id="easy" value="easy">
+<input checked type="radio" name="difficulty" id="easy" value="easy">
 <label for="easy">Easy</label><br>
 <input type="radio" name="difficulty" id="intermediate" value="intermediate">
 <label for="intermediate">Intermediate</label><br>
