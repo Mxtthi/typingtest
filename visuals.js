@@ -70,5 +70,37 @@ function focusText() {
     document.getElementById("container").focus();
 }
 
+//open/close sidebar
+function openNav() {
+    document.getElementById("mySidebar").style.width = "25%";
+    document.getElementById("main").style.marginLeft = "25%";
+    document.getElementById("openButton").style.display = "none";
+    NavOpen = true;
+}
+
+function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+    document.getElementById("openButton").style.display = "block";
+    NavOpen = false;
+}
+
+// collapsible for settings
+function collapsible() {
+    let coll = document.getElementsByClassName("collapsible");
+    let i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+}
 
 
