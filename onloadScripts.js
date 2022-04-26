@@ -6,7 +6,6 @@ let keyPressed;
 let currentKey;
 let lastKey;
 let isRunning = false;
-let altVisuals;
 let tries = 0;
 let allowedKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
@@ -56,10 +55,6 @@ function startGame() {
 }
 
 function getInputs() {
-    altVisuals = false;
-    if (document.getElementById("altVisuals").checked == true) {
-        altVisuals = true;
-    }
     maxWordLength = parseInt(document.getElementById("maxWordLength").value);
     minWordLength = parseInt(document.getElementById("minWordLength").value);
     textWordLength = document.getElementById("textWordLength").value;

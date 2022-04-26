@@ -14,9 +14,6 @@ function createVisuals() {
 
 function rightKeyPressed() {
     letters[currentKey - 1].classList.add("right");
-    if (altVisuals == true) {
-        letters[currentKey - 1].classList.add("rightAlt");
-    }
 
     if (letters[currentKey - 1].innerHTML == " ") {
         letters[currentKey - 1].classList.remove("wrongEmpty");
