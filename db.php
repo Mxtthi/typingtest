@@ -56,5 +56,6 @@ for ($n = 0; $n < count($data); $n++) {
             }
         }
     }
+    echo "<br>";
 }
 echo "</div>";
