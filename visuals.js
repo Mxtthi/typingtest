@@ -65,6 +65,7 @@ function finished() {
     stopGame();
     calculateStats();
     showResult();
+    uploadResults();
 }
 
 function focusText() {

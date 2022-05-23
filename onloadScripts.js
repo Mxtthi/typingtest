@@ -1,14 +1,5 @@
-let slider;
-let output;
-let maxWordLength;
-let textWordLength;
-let keyPressed;
-let currentKey;
-let lastKey;
-let isRunning = false;
-let tries = 0;
-let allowedKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
+let slider, output, maxWordLength, textWordLength, keyPressed, currentKey, lastKey, isRunning = false, tries = 0,
+    allowedKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' '];
 
 window.onload = function () {
     collapsible();
@@ -115,4 +106,13 @@ function stopGame() {
     if (isRunning == true) {
         endTimer();
     }
+}
+
+function sendData(dataToBeSent) {
+    $("#result").innerHTML = "";
+    $.post("db.php", dataToBeSent, function (data) {
+        // Display the returned data in browser
+
+        $("#result").html(data);
+    });
 }

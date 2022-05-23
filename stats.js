@@ -17,7 +17,8 @@ function calculateStats() {
     accuracy = (textLength - Math.max(errors, 0)) / textLength * 100;
     document.getElementById("accuracy").innerHTML = accuracy.toFixed(0) + "% Accuracy";
     wpm = (60 / timeTaken) * (textLength / 5);
-    document.getElementById('speed').innerHTML = wpm.toFixed(0) + " WPM";
+    speed = (wpm * accuracy / 100).toFixed(0);
+    document.getElementById('speed').innerHTML = speed + " WPM";
 }
 
 function showResult() {
@@ -48,5 +49,14 @@ function getDifficulty() {
         default:
             console.log("unknown difficulty");
             break;
+    }
+}
+
+function uploadResults() {
+    console.log(textWordLength);
+    if (textWordLength >= 15) {
+        let data = { "speed": speed, "accuracy": accuracy, "difficulty": difficulty };
+        console.log(data);
+        sendData(data);
     }
 }
