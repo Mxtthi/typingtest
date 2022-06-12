@@ -1,13 +1,7 @@
-let wpm;
-let accuracy;
-let errors = 0;
-let wrong;
-let wrongEmpty;
-let difficulty;
+let wpm, accuracy, errors = 0, wrong, wrongEmpty, difficulty;
 
 function calculateStats() {
-    errors = 0;
-    textLength--;
+    errors = 0, textLength--;
     if (document.getElementsByClassName("wrong").length > 0) {
         errors += document.getElementsByClassName("wrong").length;
     }
@@ -46,17 +40,12 @@ function getDifficulty() {
             return 1000;
         case "hard":
             return 10000;
-        default:
-            console.log("unknown difficulty");
-            break;
     }
 }
 
 function uploadResults() {
-    console.log(textWordLength);
     if (textWordLength >= 15) {
         let data = { "speed": speed, "accuracy": accuracy, "difficulty": difficulty };
-        console.log(data);
         sendData(data);
     }
 }

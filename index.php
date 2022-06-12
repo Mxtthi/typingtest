@@ -55,6 +55,10 @@
 
     array_push($data, $hard, $intermediate, $easy);
     echo "<div id='result'>";
+    echo '<button class="collapsible">Scoreboard</button>
+        <hr>
+            <div id="collapsibleContent" class="content">';
+
 
     for ($n = 0; $n < count($data); $n++) {
 
@@ -77,7 +81,7 @@
         }
         echo "<br>";
     }
-    echo "</div>";
+    echo "</div></div></div>";
 
     ?>
 
@@ -112,7 +116,7 @@
                     <input value="15" type="number" id="textWordLength" min="1">
                 </div>
                 <div><label for="slider">Font-Size:</label><br>
-                    <input id="slider" type="range" min="1" max="100" value="50">
+                    <input id="slider" type="range" min="25" max="300" value="100">
                     <span id="output"></span>
                 </div>
                 <hr>

@@ -1,6 +1,4 @@
-let start;
-let currentTime;
-let timeTaken;
+let start, currentTime, timeTaken;
 
 function startTimer() {
     start = Date.now();

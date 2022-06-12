@@ -34,7 +34,9 @@ $stmt = $db->query($sql);
 $hard = $stmt->fetchAll();
 
 array_push($data, $hard, $intermediate, $easy);
-echo "<div id='result'>";
+echo '<button class="collapsible">Scoreboard</button>
+        <hr>
+            <div id="collapsibleContent" class="content">';
 
 for ($n = 0; $n < count($data); $n++) {
 
@@ -58,4 +60,5 @@ for ($n = 0; $n < count($data); $n++) {
     }
     echo "<br>";
 }
-echo "</div>";
+echo "</div></div>";
+echo "<script>collapsible()</script>";

@@ -4,7 +4,6 @@ let newList;
 
 function generateText(textWordLength, maxWordLength, minWordLength) {
     let wordrange = getDifficulty();
-    console.log(wordrange);
     text = "";
     newList = [];
     currentKey = 1;

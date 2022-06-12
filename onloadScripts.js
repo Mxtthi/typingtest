@@ -15,18 +15,23 @@ window.onload = function () {
 };
 
 function changeFontSize() {
+    let newSize = output.innerHTML.substring(0, output.innerHTML.length - 1) / 100 * 3;
+    console.log(newSize)
     for (let i = 0; i < document.getElementById("container").children.length; i++) {
         const element = document.getElementById("container").children[i];
-        element.style.fontSize = output.innerHTML;
+        element.style.fontSize = newSize + "vw";
     }
+    document.getElementById("container").style.fontSize = newSize + "vw";
+    document.getElementById("statsDiv").style.fontSize = newSize + "vw";
+    lines = getLines();
 }
 
 function initiateSlider() {
     output = document.getElementById("output");
-    output.innerHTML = slider.value + "px";
+    output.innerHTML = slider.value + "%";
 
     slider.oninput = function () {
-        output.innerHTML = this.value + "px";
+        output.innerHTML = this.value + "%";
     }
     changeFontSize();
 }
@@ -49,10 +54,7 @@ function getInputs() {
     maxWordLength = parseInt(document.getElementById("maxWordLength").value);
     minWordLength = parseInt(document.getElementById("minWordLength").value);
     textWordLength = document.getElementById("textWordLength").value;
-    if (minWordLength > maxWordLength) {
-        alert("min length is bigger than max");
-    }
-    console.log(maxWordLength, minWordLength, textWordLength);
+    if (minWordLength > maxWordLength) alert("min length is bigger than max");
 }
 
 function validateKey(e) {

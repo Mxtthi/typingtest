@@ -1,5 +1,4 @@
-let letters = [];
-let parentElem;
+let letters = [], parentElem, lines;
 function createVisuals() {
     for (let i = 1; i < text.length; i++) {
         let span = document.createElement("span");
@@ -20,11 +19,44 @@ function rightKeyPressed() {
     } else {
         letters[currentKey - 1].classList.remove("wrong");
     }
-    console.log("right key pressed");
-    currentKey++;
-    if (currentKey >= text.length) {
+    if (currentKey + 1 >= text.length) {
         finished();
+        return;
     }
+    if (getCurrentLine() == 2) removeLine();
+    lines = getLines();
+    currentKey++;
+}
+
+function getLines() {
+    let lines = 1, y;
+    for (let i = 0; i < document.getElementsByClassName("letter").length; i++) {
+        if (y == undefined) y = document.getElementsByClassName("letter")[i].getBoundingClientRect().y;
+        if (y != document.getElementsByClassName("letter")[i].getBoundingClientRect().y) {
+            lines++; 
+            y = document.getElementsByClassName("letter")[i].getBoundingClientRect().y
+        }
+    }
+    return lines;
+}
+
+function getCurrentLine() {
+    if (lines != 1) {
+        let elem = document.getElementsByClassName("letter")[currentKey - 1];
+        let lastElem = document.getElementsByClassName("letter")[currentKey];
+        if (elem.getBoundingClientRect().y != lastElem.getBoundingClientRect().y) return 2;
+    }
+    return 1;
+}
+
+function removeLine() {
+    if (lines <= 2) return;
+    for (let i = currentKey - 1; i >= 0; i--) {
+        let elem = document.getElementsByClassName("letter")[i];
+        text = text.slice(0, i) + text.slice(i+1);
+        elem.remove();
+    }
+    currentKey = 0;
 }
 
 function wrongKeyPressed() {
@@ -34,7 +66,6 @@ function wrongKeyPressed() {
         letters[currentKey - 1].classList.add("wrong");
     }
     currentKey++;
-    console.log("wrong key pressed");
     if (currentKey >= text.length) {
         finished();
     }
@@ -53,7 +84,6 @@ function goForward() {
 }
 
 function goBackwards() {
-    console.log(currentKey)
     if (letters != undefined && currentKey > 0) {
         letters[currentKey - 1].classList.add("current");
         lastKey = currentKey + 1;
@@ -94,8 +124,10 @@ function collapsible() {
 
     for (i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", function () {
+            console.log(this.nextElementSibling);
             this.classList.toggle("active");
             var content = this.nextElementSibling.nextElementSibling;
+
             if (content.style.maxHeight) {
                 content.style.maxHeight = null;
             } else {
