@@ -33,7 +33,7 @@ function getLines() {
     for (let i = 0; i < document.getElementsByClassName("letter").length; i++) {
         if (y == undefined) y = document.getElementsByClassName("letter")[i].getBoundingClientRect().y;
         if (y != document.getElementsByClassName("letter")[i].getBoundingClientRect().y) {
-            lines++; 
+            lines++;
             y = document.getElementsByClassName("letter")[i].getBoundingClientRect().y
         }
     }
@@ -53,7 +53,7 @@ function removeLine() {
     if (lines <= 2) return;
     for (let i = currentKey - 1; i >= 0; i--) {
         let elem = document.getElementsByClassName("letter")[i];
-        text = text.slice(0, i) + text.slice(i+1);
+        text = text.slice(0, i) + text.slice(i + 1);
         elem.remove();
     }
     currentKey = 0;
@@ -117,10 +117,14 @@ function closeNav() {
     NavOpen = false;
 }
 
+let counter = 0;
+
 // collapsible for settings
 function collapsible() {
-    let coll = document.getElementsByClassName("collapsible");
-    let i;
+    let coll = document.getElementsByClassName("collapsible"), i;
+
+
+    if (counter > 0) return;
 
     for (i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", function () {
@@ -135,6 +139,7 @@ function collapsible() {
             }
         });
     }
+    counter++;
 }
 
 
